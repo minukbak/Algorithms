@@ -7,7 +7,7 @@ Inflearn 자바 알고리즘 문제 실행기 초기 코드
 */
 import java.util.*;
 
-class Main {
+public class Main {
   public int solution(String str, char t) {
         int answer = 0;
         
