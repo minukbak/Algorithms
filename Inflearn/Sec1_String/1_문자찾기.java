@@ -17,7 +17,7 @@
 
 import java.util.*;
 
-public class Main {
+class Main {
   public int solution(String str, char t) {
         int answer = 0;
 
