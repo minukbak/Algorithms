@@ -20,7 +20,7 @@ import java.util.*;
 
 class Main {
   public int solution(int[] arr, int n, int k) {
-    int answer = 0;
+    int answer = -1;
     TreeSet<Integer> Tset = new TreeSet<>(Collections.reverseOrder());
     
     for (int i = 0; i < n; i++) {
