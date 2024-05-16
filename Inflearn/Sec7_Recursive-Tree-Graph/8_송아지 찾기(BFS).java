@@ -15,3 +15,48 @@
   - 예시 출력 1
     3
 */
+
+import java.util.*;
+
+public class Main {
+  int answer = 0;
+  int[] dis = {1, -1, 5};
+  int[] chk;
+  Queue<Integer> que = new LinkedList<>();
+
+  public int BFS(int s, int e) {
+    int lvl = 0;
+    chk = new int[10001];
+
+    chk[s] = 1;
+    que.offer(s);
+
+    while (!que.isEmpty()) {
+      int len = que.size();
+
+      for (int i = 0; i < len; i++) {
+        int x = que.poll();
+        if (x == e) return lvl;
+
+        for (int j = 0; j < 3; j++) {
+          int nx = x + dis[j];
+          // if (nx == e) return lvl + 1;
+          if (nx >= 1 && nx <= 10000 && chk[nx] == 0) {
+            chk[nx] = 1;
+            que.offer(nx);
+          }
+        }
+      }
+      lvl++;
+    }
+    return 0;
+  }
+  
+  public static void main(String[] args) {
+    Main T = new Main();
+    Scanner kb = new Scanner(System.in);
+    int s = kb.nextInt();
+    int e = kb.nextInt();
+    System.out.println(T.BFS(s, e));
+  }
+}
