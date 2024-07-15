@@ -9,10 +9,10 @@
     N명의 지원자가 주어지면 위의 선발원칙으로 최대 몇 명의 선수를 선발할 수 있는지 알아내는 프로그램을 작성하세요.
   - 입력
     첫째 줄에 지원자의 수 N(5<=N<=30,000)이 주어집니다.
-    두 번째 줄부터 N명의 흰돌 능력치와 검은돌 능력치 정보가 차례로 주어집니다.
-    각 선수의 흰돌능력치가 모두 다르고, 검은돌 능력치도 모두 다릅니다. 능력치 값은 1,000,000이하의 자연수입니다.
+    두 번째 줄부터 N명의 키와 몸무게 정보가 차례로 주어집니다.
+    각 선수의 키가 모두 다르고, 몸무게도 모두 다릅니다.
   - 출력
-    첫째 줄에 바둑 선수로 뽑히는 최대 인원을 출력하세요.
+    첫째 줄에 씨름 선수로 뽑히는 최대 인원을 출력하세요.
   - 예시 입력 1 
     5
     172 67
@@ -26,3 +26,46 @@
     (183, 65), (180, 70), (170, 72) 가 선발됩니다.
     (181, 60)은 (183, 65)보다 키와 몸무게 모두 낮기 때문에 탈락이고, (172, 67)은 (180, 70) 때문에 탈락입니다.
 */
+
+import java.util.*;
+
+class Body implements Comparable<Body> {
+  public int h , w;
+  Body(int h, int w) {
+    this.h = h;
+    this.w = w;
+  }
+  @Override
+  public int compareTo(Body obj) {
+    return obj.h - this.h;
+  }
+}
+
+public class Main {
+  public int solution(ArrayList<Body> arr, int n) {
+    int cnt = 0;
+    Collections.sort(arr);
+    int max = Integer.MIN_VALUE;
+    for (Body obj : arr) {
+      if (obj.w > max) {
+        max = obj.w;
+        cnt++;
+      }
+    }
+    return cnt;
+  }
+
+  public static void main(String[] args) {
+    Main T = new Main();
+    Scanner kb = new Scanner(System.in);
+    int n = kb.nextInt();
+    ArrayList<Body> arr = new ArrayList<>();
+
+    for (int i = 0; i < n; i++) {
+      int h = kb.nextInt();
+      int w = kb.nextInt();
+      arr.add(new Body(h, w));
+    }
+    System.out.println(T.solution(arr, n));
+  }
+}
