@@ -44,7 +44,7 @@ class Time implements Comparable<Time> {
 }
 
 public class Main {
-  public int solution(ArrayList<Time> arr, int n) {
+  public int solution(ArrayList<Time> arr) {
     int cnt = 0;
     
     Collections.sort(arr);
@@ -69,6 +69,6 @@ public class Main {
       int e = kb.nextInt();
       arr.add(new Time(s, e));
     }
-    System.out.println(T.solution(arr, n));
+    System.out.println(T.solution(arr));
   }
 }
