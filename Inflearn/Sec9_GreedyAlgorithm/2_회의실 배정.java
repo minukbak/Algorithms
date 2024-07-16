@@ -27,3 +27,48 @@
   - 예시 출력 2
     2
 */
+
+import java.util.*;
+
+class Time implements Comparable<Time> {
+  public int s, e;
+  Time(int s, int e) {
+    this.s = s;
+    this.e = e;
+  }
+  @Override
+  public int compareTo(Time obj) {
+    if (this.e == obj.e) return this.s - obj.s;
+    else return this.e - obj.e;
+  }
+}
+
+public class Main {
+  public int solution(ArrayList<Time> arr, int n) {
+    int cnt = 0;
+    
+    Collections.sort(arr);
+    int et = 0;
+    for (Time ob : arr) {
+      if (ob.s >= et) {
+        cnt++;
+        et = ob.e;
+      }
+    }
+    return cnt;
+  }
+
+  public static void main(String[] args) {
+    Main T = new Main();
+    Scanner kb = new Scanner(System.in);
+    int n = kb.nextInt();
+    ArrayList<Time> arr = new ArrayList<>();
+
+    for (int i = 0; i < n; i++) {
+      int s = kb.nextInt();
+      int e = kb.nextInt();
+      arr.add(new Time(s, e));
+    }
+    System.out.println(T.solution(arr, n));
+  }
+}
