@@ -42,7 +42,7 @@ class Body implements Comparable<Body> {
 }
 
 public class Main {
-  public int solution(ArrayList<Body> arr, int n) {
+  public int solution(ArrayList<Body> arr) {
     int cnt = 0;
     Collections.sort(arr);
     int max = Integer.MIN_VALUE;
@@ -66,6 +66,6 @@ public class Main {
       int w = kb.nextInt();
       arr.add(new Body(h, w));
     }
-    System.out.println(T.solution(arr, n));
+    System.out.println(T.solution(arr));
   }
 }
