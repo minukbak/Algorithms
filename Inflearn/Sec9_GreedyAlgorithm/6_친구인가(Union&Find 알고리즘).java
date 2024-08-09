@@ -44,7 +44,6 @@ public class Main {
   }
 
   public static void main(String[] args) {
-    Main T = new Main();
     Scanner kb = new Scanner(System.in);
     int n = kb.nextInt();
     int m = kb.nextInt();
@@ -53,15 +52,14 @@ public class Main {
     for (int i = 1; i <= n; i++) {
       unf[i] = i;
     }
-
     for (int i = 1; i <= m; i++) {
       int a = kb.nextInt();
       int b = kb.nextInt();
       Union(a, b);
     }
+    
     int a = kb.nextInt();
     int b = kb.nextInt();
-    
     int fa = Find(a);
     int fb = Find(b);
     if (fa == fb) System.out.println("YES");
