@@ -1,0 +1,8 @@
+/* https://school.programmers.co.kr/learn/courses/30/lessons/144854 */
+
+SELECT B.BOOK_ID, A.AUTHOR_NAME, DATE_FORMAT(PUBLISHED_DATE, '%Y-%m-%d') AS PUBLISHED_DATE
+FROM AUTHOR A, BOOK B
+WHERE A.AUTHOR_ID = B.AUTHOR_ID
+    AND B.CATEGORY = '경제'
+ORDER BY PUBLISHED_DATE
+;
