@@ -1,0 +1,8 @@
+/* https://school.programmers.co.kr/learn/courses/30/lessons/273710 */
+
+SELECT A.ITEM_ID, A.ITEM_NAME
+FROM ITEM_INFO A, ITEM_TREE B
+WHERE A.ITEM_ID = B.ITEM_ID
+    AND B.PARENT_ITEM_ID IS NULL
+ORDER BY A.ITEM_ID
+;
