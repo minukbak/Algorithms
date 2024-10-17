@@ -1,0 +1,11 @@
+/* https://school.programmers.co.kr/learn/courses/30/lessons/273711 */
+
+SELECT ITEM_ID, ITEM_NAME, RARITY
+FROM ITEM_INFO
+WHERE ITEM_ID IN (
+    SELECT T.ITEM_ID
+    FROM ITEM_INFO I, ITEM_TREE T
+    WHERE I.ITEM_ID = T.PARENT_ITEM_ID
+        AND I.RARITY = 'RARE'
+)
+ORDER BY ITEM_ID DESC;
